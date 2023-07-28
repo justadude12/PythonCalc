@@ -41,28 +41,14 @@ def numberButton(x, text):
 
 # Creating and setting the number buttons for the calculator
 
-
-
-button1 = tk.Button(window, text='1', command=lambda: numberButton('1', text))
-button1.grid(row=1, column=0, sticky='nsew')
-button2 = tk.Button(window, text='2', command=lambda: numberButton('2', text))
-button2.grid(row=1, column=1, sticky='nsew')
-button3 = tk.Button(window, text='3', command=lambda: numberButton('3', text))
-button3.grid(row=1, column=2, sticky='nsew')
-button4 = tk.Button(window, text='4', command=lambda: numberButton('4', text))
-button4.grid(row=2, column=0, sticky='nsew')
-button5 = tk.Button(window, text='5', command=lambda: numberButton('5', text))
-button5.grid(row=2, column=1, sticky='nsew')
-button6 = tk.Button(window, text='6', command=lambda: numberButton('6', text))
-button6.grid(row=2, column=2, sticky='nsew')
-button7 = tk.Button(window, text='7', command=lambda: numberButton('7', text))
-button7.grid(row=3, column=0, sticky='nsew')
-button8 = tk.Button(window, text='8', command=lambda: numberButton('8', text))
-button8.grid(row=3, column=1, sticky='nsew')
-button9 = tk.Button(window, text='9', command=lambda: numberButton('9', text))
-button9.grid(row=3, column=2, sticky='nsew')
-button0 = tk.Button(window, text='0', command=lambda: numberButton('0', text))
-button0.grid(row=4, column=0, sticky='nsew')
+buttons = []
+for i in range(10):
+    button = tk.Button(window, text=str(i), command=lambda: numberButton(str(i), text))
+    if(i != 0):
+        button.grid(row=1 + (i - 1) // 3, column=(i - 1) % 3, sticky='nsew')
+    else:
+        button.grid(row=4, column=0, sticky='nsew')
+    buttons.append(button)
 
 ####
 
